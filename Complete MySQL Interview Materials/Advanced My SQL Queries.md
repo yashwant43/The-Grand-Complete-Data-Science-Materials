@@ -14,6 +14,8 @@ WHERE N-1 = (SELECT COUNT(DISTINCT salary)
              WHERE e2.salary > e1.salary);
 
 ```
+
+Link : https://stackoverflow.com/questions/15474216/nth-max-salary-query-in-sql
 **2. Explain `JOIN` and different types of `JOIN` in MySQL.**
 
 **Answer**:

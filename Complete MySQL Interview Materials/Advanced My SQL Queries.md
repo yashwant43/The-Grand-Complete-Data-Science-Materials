@@ -213,6 +213,8 @@ FROM table_name
 GROUP BY column_name;
 
 ```
+Group by automatically selects unique values by default
+
 **23. Explain the difference between a `PRIMARY KEY` and a `UNIQUE` constraint.**
 
 **Answer**:

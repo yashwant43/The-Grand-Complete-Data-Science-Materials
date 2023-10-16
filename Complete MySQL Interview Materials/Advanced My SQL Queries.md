@@ -357,6 +357,19 @@ ON e1.department_id = e2.department_id
 WHERE e1.salary > e2.avg_salary;
 
 ```
+
+OR
+```sql
+SELECT id, name, salary, department_id
+FROM (
+  SELECT e1.id, e1.name, e1.salary, e1.department_id,
+         AVG(salary) OVER (PARTITION BY e1.department_id) AS avg_salary
+  FROM employees e1
+) AS subquery
+WHERE salary > avg_salary;
+```
+
+
 **37. Retrieve all pairs of students who have the same scores.**
 
 **Answer**:

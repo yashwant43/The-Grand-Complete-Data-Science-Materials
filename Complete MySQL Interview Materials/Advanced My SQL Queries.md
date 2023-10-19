@@ -508,6 +508,18 @@ ON e.department_id = subquery.department_id
 AND e.salary = subquery.max_salary;
 
 ```
+
+OR
+
+```
+SELECT department_id, employee_id, first_name, last_name, salary
+FROM (
+    SELECT department_id, employee_id, first_name, last_name, salary,
+           ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS salary_rank
+    FROM employees
+) ranked_employees
+WHERE salary_rank = 1;
+```
 **46. Which departments have the same average salary?**
 
 **Answer**:
